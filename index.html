@@ -617,7 +617,25 @@
       }
     }
 
+    /* MOBILE */
+
     @media(max-width: 768px) {
+
+      .navbar .wrap {
+        height: 72px;
+      }
+
+      .brand-box {
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
+      }
+
+      .navbar .primary-btn {
+        padding: 9px 14px;
+        font-size: 12px;
+        white-space: nowrap;
+      }
 
       .hero {
         padding-top: 125px;
@@ -662,19 +680,19 @@
 
     <div class="wrap h-20 flex items-center justify-between">
 
-      <a href="#home" class="flex items-center gap-3">
+      <a href="#home" class="flex items-center gap-2 sm:gap-3">
 
         <div class="brand-box">
           MS
         </div>
 
-        <div class="hidden sm:block">
+        <div class="block">
 
-          <div class="brand font-bold">
+          <div class="brand font-bold text-sm sm:text-base">
             MURAD SHAIKH
           </div>
 
-          <div class="text-[9px] uppercase tracking-[.23em] text-zinc-500">
+          <div class="text-[7px] sm:text-[9px] uppercase tracking-[.16em] sm:tracking-[.23em] text-zinc-500">
             AI Automation Engineer
           </div>
 
@@ -1871,12 +1889,7 @@
 
 
 
-  <!-- =========================
-       MODALS
-  ========================== -->
-
-
-  <!-- HOSPITAL -->
+  <!-- MODALS -->
 
   <div
     id="hospital"
@@ -1980,8 +1993,6 @@
   </div>
 
 
-
-  <!-- LEAD -->
 
   <div
     id="lead"
@@ -2087,8 +2098,6 @@
 
 
 
-  <!-- SCHEDULER -->
-
   <div
     id="scheduler"
     class="modal"
@@ -2193,8 +2202,6 @@
 
 
 
-  <!-- NEWS -->
-
   <div
     id="news"
     class="modal"
@@ -2295,8 +2302,6 @@
   </div>
 
 
-
-  <!-- CONTENT -->
 
   <div
     id="content"
