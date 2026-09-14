@@ -1,911 +1,2462 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MURAD SHAIKH | AI Automation Engineer</title>
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            bg: '#030305',
-                            card: '#0a0b10',
-                            surface: '#111218',
-                            border: 'rgba(255, 255, 255, 0.1)',
-                            blue: '#2563eb',
-                            blueLight: '#3b82f6',
-                            blueGlow: 'rgba(37, 99, 235, 0.35)',
-                            red: '#ef4444',
-                            redDark: '#dc2626',
-                            redGlow: 'rgba(239, 68, 68, 0.35)',
-                            text: '#ffffff',
-                            muted: '#94a3b8'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['Fira Code', 'monospace']
-                    }
-                }
-            }
-        }
-    </script>
+  <title>Murad Shaikh — AI Automation Engineer</title>
 
-    <style>
-        html {
-            background-color: #030305 !important;
-        }
+  <meta
+    name="description"
+    content="Murad Shaikh is an AI Automation Engineer building practical AI-powered workflows and business automation systems with n8n."
+  >
 
-        body {
-            background-color: #030305 !important;
-            color: #ffffff !important;
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-        }
+  <script src="https://cdn.tailwindcss.com"></script>
 
-        /* Prevent white flash or background target overrides when clicking anchor links */
-        section, div, a, button, header, footer {
-            -webkit-tap-highlight-color: transparent;
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        :target {
-            background-color: transparent !important;
-        }
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #030305;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #111218;
-            border-radius: 4px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #2563eb;
-        }
+  <style>
 
-        /* Grid Background Pattern */
-        .grid-pattern {
-            background-size: 50px 50px;
-            background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-        }
+    :root {
+      --ink: #111111;
+      --paper: #f4f3ef;
+      --paper-dark: #e9e8e2;
+      --blue: #155eef;
+      --blue-light: #4f8cff;
+      --green: #19a974;
+      --muted: #6f7074;
+      --line: rgba(17,17,17,.12);
+    }
 
-        .glass-card {
-            background: rgba(10, 11, 16, 0.85);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.3s ease;
-        }
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-        .glass-card:hover {
-            border-color: rgba(59, 130, 246, 0.4);
-            box-shadow: 0 10px 30px -10px rgba(37, 99, 235, 0.2);
-        }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "DM Sans", sans-serif;
+      overflow-x: hidden;
+    }
 
-        .glass-card-red:hover {
-            border-color: rgba(239, 68, 68, 0.4);
-            box-shadow: 0 10px 30px -10px rgba(239, 68, 68, 0.2);
-        }
+    h1,
+    h2,
+    h3,
+    h4,
+    .display {
+      font-family: "Plus Jakarta Sans", sans-serif;
+    }
 
-        /* Toast Alert */
-        #toast {
-            transform: translateY(100px);
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-        #toast.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    </style>
+    ::selection {
+      background: var(--blue);
+      color: white;
+    }
+
+    .wrap {
+      width: min(1280px, 91%);
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(244,243,239,.86);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(17,17,17,.07);
+    }
+
+    .brand {
+      letter-spacing: -.04em;
+    }
+
+    .brand-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 11px;
+      background: var(--ink);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Plus Jakarta Sans";
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .nav-link {
+      color: #68696d;
+      transition: .2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--ink);
+    }
+
+    /* BUTTONS */
+
+    .primary-btn {
+      background: var(--ink);
+      color: white;
+      border-radius: 999px;
+      transition: .25s ease;
+    }
+
+    .primary-btn:hover {
+      background: var(--blue);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(21,94,239,.2);
+    }
+
+    .blue-btn {
+      background: var(--blue);
+      color: white;
+      border-radius: 999px;
+      transition: .25s ease;
+    }
+
+    .blue-btn:hover {
+      background: #0d4bc4;
+      transform: translateY(-2px);
+    }
+
+    .outline-btn {
+      border: 1px solid rgba(17,17,17,.18);
+      color: var(--ink);
+      border-radius: 999px;
+      transition: .25s ease;
+    }
+
+    .outline-btn:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      padding-top: 150px;
+      padding-bottom: 70px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      background-image:
+        linear-gradient(rgba(17,17,17,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(17,17,17,.035) 1px, transparent 1px);
+      background-size: 70px 70px;
+    }
+
+    .hero-circle {
+      position: absolute;
+      width: 580px;
+      height: 580px;
+      border-radius: 50%;
+      right: -230px;
+      top: 110px;
+      background: rgba(21,94,239,.08);
+      filter: blur(2px);
+      pointer-events: none;
+    }
+
+    .hero-title {
+      font-size: clamp(4rem, 9vw, 9.5rem);
+      line-height: .88;
+      letter-spacing: -.085em;
+      font-weight: 800;
+    }
+
+    .blue-word {
+      color: var(--blue);
+    }
+
+    .hero-small {
+      border-left: 3px solid var(--blue);
+      padding-left: 18px;
+    }
+
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 13px;
+      border: 1px solid rgba(17,17,17,.1);
+      border-radius: 999px;
+      background: rgba(255,255,255,.35);
+      font-size: 12px;
+      font-weight: 600;
+      color: #57585c;
+    }
+
+    .green-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 4px rgba(25,169,116,.1);
+    }
+
+    /* INTRO STRIP */
+
+    .strip {
+      background: var(--ink);
+      color: white;
+      overflow: hidden;
+    }
+
+    .strip-inner {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      white-space: nowrap;
+      padding: 23px 0;
+      width: max-content;
+      animation: marquee 20s linear infinite;
+    }
+
+    .strip-text {
+      font-family: "Plus Jakarta Sans";
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .17em;
+      color: #d1d1d1;
+      font-weight: 700;
+    }
+
+    .strip-dot {
+      color: var(--blue-light);
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* SECTIONS */
+
+    .section {
+      padding: 130px 0;
+    }
+
+    .section-number {
+      color: #9a9b9e;
+      font-family: monospace;
+      font-size: 12px;
+    }
+
+    .section-heading {
+      font-size: clamp(3rem, 6vw, 6.5rem);
+      line-height: .94;
+      letter-spacing: -.075em;
+      font-weight: 800;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      font-weight: 700;
+      color: #77787c;
+    }
+
+    /* ABOUT */
+
+    .about-card {
+      background: var(--ink);
+      color: white;
+      border-radius: 30px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .about-card::after {
+      content: "";
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      right: -150px;
+      bottom: -190px;
+      background: rgba(21,94,239,.28);
+      filter: blur(70px);
+    }
+
+    .about-big {
+      font-size: clamp(7rem, 18vw, 18rem);
+      font-weight: 800;
+      line-height: .7;
+      letter-spacing: -.12em;
+      color: rgba(255,255,255,.06);
+    }
+
+    /* PROJECTS */
+
+    .project-section {
+      background: #111111;
+      color: white;
+    }
+
+    .project-intro {
+      color: #999ba0;
+    }
+
+    .project {
+      border-top: 1px solid rgba(255,255,255,.12);
+      padding: 75px 0;
+    }
+
+    .project:last-child {
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+
+    .project-index {
+      color: #65666b;
+      font-size: 12px;
+      font-family: monospace;
+      letter-spacing: .12em;
+    }
+
+    .project-title {
+      font-size: clamp(2.5rem, 5vw, 5.5rem);
+      line-height: .94;
+      letter-spacing: -.065em;
+      font-weight: 800;
+    }
+
+    .project-description {
+      color: #97989d;
+      line-height: 1.75;
+    }
+
+    .project-tag {
+      display: inline-flex;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 999px;
+      padding: 7px 11px;
+      color: #b8bac0;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .project-image {
+      min-height: 350px;
+      border-radius: 25px;
+      position: relative;
+      overflow: hidden;
+      background: #18191c;
+      border: 1px solid rgba(255,255,255,.09);
+    }
+
+    .visual-blue {
+      background:
+        radial-gradient(circle at 25% 25%, rgba(21,94,239,.42), transparent 32%),
+        radial-gradient(circle at 80% 80%, rgba(25,169,116,.18), transparent 30%),
+        #151619;
+    }
+
+    .visual-green {
+      background:
+        radial-gradient(circle at 75% 25%, rgba(25,169,116,.32), transparent 30%),
+        radial-gradient(circle at 20% 80%, rgba(21,94,239,.25), transparent 35%),
+        #151619;
+    }
+
+    .visual-neutral {
+      background:
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,.09), transparent 38%),
+        #151619;
+    }
+
+    .visual-red {
+      background:
+        radial-gradient(circle at 20% 25%, rgba(239,68,68,.28), transparent 30%),
+        radial-gradient(circle at 80% 75%, rgba(21,94,239,.22), transparent 35%),
+        #151619;
+    }
+
+    .workflow {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 25px;
+    }
+
+    .node {
+      min-width: 80px;
+      height: 70px;
+      border-radius: 16px;
+      background: rgba(0,0,0,.42);
+      border: 1px solid rgba(255,255,255,.15);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 10px;
+      line-height: 1.3;
+      font-weight: 700;
+      color: #e4e4e7;
+      padding: 7px;
+    }
+
+    .node-blue {
+      border-color: rgba(79,140,255,.55);
+    }
+
+    .node-green {
+      border-color: rgba(25,169,116,.55);
+    }
+
+    .arrow {
+      color: #6c9cff;
+      font-size: 20px;
+    }
+
+    .case-link {
+      color: #70a1ff;
+      font-weight: 700;
+      transition: .2s ease;
+    }
+
+    .case-link:hover {
+      color: white;
+    }
+
+    /* CAPABILITIES */
+
+    .capability-row {
+      border-top: 1px solid var(--line);
+      padding: 30px 0;
+      transition: .25s ease;
+    }
+
+    .capability-row:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .capability-row:hover {
+      padding-left: 12px;
+    }
+
+    .capability-number {
+      color: var(--blue);
+      font-family: monospace;
+      font-weight: 700;
+    }
+
+    /* PROCESS */
+
+    .process-box {
+      border: 1px solid var(--line);
+      border-radius: 25px;
+      padding: 30px;
+      background: rgba(255,255,255,.3);
+      transition: .25s ease;
+    }
+
+    .process-box:hover {
+      transform: translateY(-5px);
+      border-color: rgba(21,94,239,.35);
+      background: white;
+    }
+
+    .process-icon {
+      width: 45px;
+      height: 45px;
+      background: var(--ink);
+      color: white;
+      border-radius: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    /* CTA */
+
+    .cta {
+      background: var(--blue);
+      color: white;
+      border-radius: 35px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::before {
+      content: "";
+      position: absolute;
+      width: 550px;
+      height: 550px;
+      border-radius: 50%;
+      right: -180px;
+      top: -220px;
+      background: rgba(255,255,255,.08);
+    }
+
+    .cta-title {
+      font-size: clamp(3.5rem, 7vw, 8rem);
+      line-height: .88;
+      letter-spacing: -.08em;
+      font-weight: 800;
+    }
+
+    .cta-button {
+      background: white;
+      color: var(--ink);
+      border-radius: 999px;
+      transition: .25s ease;
+    }
+
+    .cta-button:hover {
+      background: var(--ink);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* FOOTER */
+
+    .footer {
+      background: var(--ink);
+      color: white;
+    }
+
+    /* MODAL */
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(0,0,0,.8);
+      backdrop-filter: blur(15px);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-box {
+      width: min(850px, 100%);
+      max-height: 90vh;
+      overflow-y: auto;
+      background: #f4f3ef;
+      color: var(--ink);
+      border-radius: 28px;
+      padding: 35px;
+      box-shadow: 0 40px 100px rgba(0,0,0,.45);
+    }
+
+    .modal-box::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .modal-box::-webkit-scrollbar-thumb {
+      background: var(--blue);
+      border-radius: 20px;
+    }
+
+    .modal-tag {
+      display: inline-flex;
+      background: #e7e6e0;
+      border-radius: 999px;
+      padding: 7px 11px;
+      font-size: 11px;
+      color: #55565a;
+      font-weight: 600;
+    }
+
+    /* ANIMATIONS */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      animation: reveal .8s ease forwards;
+    }
+
+    .delay-1 {
+      animation-delay: .15s;
+    }
+
+    .delay-2 {
+      animation-delay: .3s;
+    }
+
+    .delay-3 {
+      animation-delay: .45s;
+    }
+
+    @keyframes reveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media(max-width: 768px) {
+
+      .hero {
+        padding-top: 125px;
+      }
+
+      .hero-title {
+        font-size: 4.2rem;
+      }
+
+      .project {
+        padding: 55px 0;
+      }
+
+      .project-image {
+        min-height: 260px;
+      }
+
+      .workflow {
+        transform: scale(.85);
+      }
+
+      .section {
+        padding: 95px 0;
+      }
+
+      .modal-box {
+        padding: 24px;
+      }
+
+    }
+
+  </style>
 </head>
-<body class="relative selection:bg-brand-blue selection:text-white">
 
-    <!-- Interactive Canvas Background -->
-    <canvas id="bgCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
-    <div class="fixed inset-0 grid-pattern pointer-events-none z-0"></div>
 
-    <header class="fixed top-0 left-0 w-full z-50 px-4 py-3 backdrop-blur-md bg-brand-bg/90 border-b border-brand-border">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-            
-            <!-- Logo & Job Title -->
-            <a href="#home" class="flex items-center gap-3 group">
-                <div class="w-9 h-9 rounded-lg bg-brand-surface border border-brand-border flex items-center justify-center font-black text-sm">
-                    <span class="text-brand-blue">M</span><span class="text-brand-red">S</span>
-                </div>
-                <div>
-                    <div class="font-black text-base tracking-tight text-white group-hover:text-brand-blueLight transition-colors">
-                        MURAD <span class="text-brand-blue">SHAIKH</span>
-                    </div>
-                    <div class="text-[10px] font-mono font-bold text-brand-red tracking-wider uppercase">
-                        AI AUTOMATION ENGINEER
-                    </div>
-                </div>
-            </a>
+<body>
 
-            <!-- Desktop Links -->
-            <nav class="hidden md:flex items-center gap-7 text-xs font-semibold uppercase tracking-wider text-brand-muted">
-                <a href="#about" class="hover:text-white transition-colors">About</a>
-                <a href="#capabilities" class="hover:text-white transition-colors">Capabilities</a>
-                <a href="#simulator" class="hover:text-brand-blueLight transition-colors flex items-center gap-1.5 text-brand-blueLight">
-                    <span class="w-2 h-2 rounded-full bg-brand-blue animate-pulse"></span> Workflow Simulator
-                </a>
-                <a href="#projects" class="hover:text-white transition-colors">Projects</a>
-                <a href="#process" class="hover:text-white transition-colors">Process</a>
-                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
-            </nav>
 
-            <!-- CTA Button -->
-            <div class="flex items-center gap-3">
-                <a href="#contact" class="px-4 py-2 rounded-lg bg-brand-blue hover:bg-brand-blueLight text-white font-semibold text-xs transition-all shadow-lg shadow-brand-blue/20">
-                    Get In Touch
-                </a>
-                
-                <button id="menuBtn" class="md:hidden p-2 text-brand-muted hover:text-white focus:outline-none">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
-            </div>
+  <!-- NAVIGATION -->
+
+  <nav class="navbar">
+
+    <div class="wrap h-20 flex items-center justify-between">
+
+      <a href="#home" class="flex items-center gap-3">
+
+        <div class="brand-box">
+          MS
         </div>
 
-        <!-- Mobile Drawer -->
-        <div id="mobileMenu" class="hidden md:hidden max-w-7xl mx-auto mt-3 pt-3 border-t border-brand-border flex flex-col gap-3 text-xs font-semibold uppercase text-brand-muted">
-            <a href="#about" class="mobile-nav-link hover:text-white py-1">About</a>
-            <a href="#capabilities" class="mobile-nav-link hover:text-white py-1">Capabilities</a>
-            <a href="#simulator" class="mobile-nav-link text-brand-blueLight flex items-center gap-2 py-1">
-                <span class="w-2 h-2 rounded-full bg-brand-blue animate-pulse"></span> Workflow Simulator
-            </a>
-            <a href="#projects" class="mobile-nav-link hover:text-white py-1">Projects</a>
-            <a href="#process" class="mobile-nav-link hover:text-white py-1">Process</a>
-            <a href="#contact" class="mobile-nav-link hover:text-white py-1">Contact</a>
-        </div>
-    </header>
+        <div class="hidden sm:block">
 
-    <section id="home" class="relative z-10 min-h-screen flex items-center pt-32 pb-16">
-        <div class="max-w-7xl mx-auto px-4 w-full">
-            <div class="max-w-3xl">
-                
-                <!-- Status Badge -->
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-surface border border-brand-border text-xs font-mono font-semibold text-brand-muted mb-6">
-                    <span class="w-2.5 h-2.5 rounded-full bg-brand-blue animate-pulse"></span>
-                    <span class="text-white">AI AUTOMATION ENGINEER</span>
-                    <span class="text-brand-border">•</span>
-                    <span class="text-brand-muted">Open For New Projects</span>
-                </div>
+          <div class="brand font-bold">
+            MURAD SHAIKH
+          </div>
 
-                <!-- Main Title -->
-                <h1 class="text-4xl sm:text-6xl font-black tracking-tight leading-none mb-4">
-                    Building <span class="text-brand-blue">AI Automation</span> <br/>
-                    For The Way Businesses <span class="text-brand-red">Work.</span>
-                </h1>
-
-                <!-- Subtitle -->
-                <div class="text-sm sm:text-base font-mono font-bold text-brand-red mb-6 flex items-center gap-2">
-                    <span>MURAD SHAIKH</span>
-                    <span>•</span>
-                    <span>AI AUTOMATION ENGINEER</span>
-                </div>
-
-                <!-- Simple English Intro -->
-                <p class="text-base sm:text-lg text-brand-muted leading-relaxed mb-8 max-w-2xl">
-                    I build practical AI agents and n8n automation workflows that connect your software tools, handle repetitive tasks, and turn manual work into smart automated systems.
-                </p>
-
-                <!-- Action Buttons -->
-                <div class="flex flex-wrap items-center gap-4">
-                    <a href="#projects" class="px-6 py-3.5 rounded-lg bg-brand-blue hover:bg-brand-blueLight text-white font-semibold text-sm flex items-center gap-2 shadow-lg shadow-brand-blue/20 transition-all hover:-translate-y-0.5">
-                        <span>Explore Projects</span>
-                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </a>
-                    
-                    <a href="#contact" class="px-6 py-3.5 rounded-lg border border-brand-red text-brand-red hover:bg-brand-red hover:text-white font-semibold text-sm flex items-center gap-2 transition-all hover:-translate-y-0.5">
-                        <i data-lucide="mail" class="w-4 h-4"></i>
-                        <span>Get In Touch</span>
-                    </a>
-                </div>
-
-                <!-- Quick Stats -->
-                <div class="grid grid-cols-3 gap-4 mt-12 pt-8 border-t border-brand-border/60 max-w-xl">
-                    <div>
-                        <div class="text-xl sm:text-2xl font-black text-brand-blue">n8n Engine</div>
-                        <div class="text-xs text-brand-muted">Workflow Automation</div>
-                    </div>
-                    <div>
-                        <div class="text-xl sm:text-2xl font-black text-brand-red">AI Agents</div>
-                        <div class="text-xs text-brand-muted">Intelligent Support</div>
-                    </div>
-                    <div>
-                        <div class="text-xl sm:text-2xl font-black text-white">Custom APIs</div>
-                        <div class="text-xs text-brand-muted">Connected Systems</div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="simulator" class="py-20 relative z-10 border-t border-brand-border bg-brand-card/50">
-        <div class="max-w-7xl mx-auto px-4">
-            
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <span class="text-xs font-mono font-bold text-brand-blue tracking-widest uppercase mb-2 block">INTERACTIVE DEMO</span>
-                <h2 class="text-3xl font-extrabold mb-3">Interactive n8n Workflow Simulator</h2>
-                <p class="text-brand-muted text-sm">
-                    Click the button below to test a live simulated AI workflow execution.
-                </p>
-            </div>
-
-            <div class="glass-card rounded-xl p-6 border border-brand-border max-w-4xl mx-auto">
-                
-                <!-- Diagram Nodes -->
-                <div class="grid md:grid-cols-3 gap-4 items-center mb-8 relative">
-                    
-                    <!-- Node 1 -->
-                    <div id="simNode1" class="p-4 rounded-lg bg-brand-surface border border-brand-border text-center transition-all">
-                        <div class="w-10 h-10 rounded-lg bg-brand-blue/20 text-brand-blue flex items-center justify-center mx-auto mb-3">
-                            <i data-lucide="webhook" class="w-5 h-5"></i>
-                        </div>
-                        <div class="text-xs font-mono text-brand-blue font-bold uppercase mb-1">Step 1: Input</div>
-                        <h4 class="font-bold text-sm text-white mb-1">Webhook / Form Data</h4>
-                        <p class="text-xs text-brand-muted">Receives new lead submission</p>
-                    </div>
-
-                    <!-- Node 2 -->
-                    <div id="simNode2" class="p-4 rounded-lg bg-brand-surface border border-brand-border text-center transition-all">
-                        <div class="w-10 h-10 rounded-lg bg-brand-red/20 text-brand-red flex items-center justify-center mx-auto mb-3">
-                            <i data-lucide="cpu" class="w-5 h-5"></i>
-                        </div>
-                        <div class="text-xs font-mono text-brand-red font-bold uppercase mb-1">Step 2: AI Logic</div>
-                        <h4 class="font-bold text-sm text-white mb-1">AI Decision Engine</h4>
-                        <p class="text-xs text-brand-muted">Evaluates lead & scores priority</p>
-                    </div>
-
-                    <!-- Node 3 -->
-                    <div id="simNode3" class="p-4 rounded-lg bg-brand-surface border border-brand-border text-center transition-all">
-                        <div class="w-10 h-10 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-3">
-                            <i data-lucide="send" class="w-5 h-5"></i>
-                        </div>
-                        <div class="text-xs font-mono text-emerald-400 font-bold uppercase mb-1">Step 3: Action</div>
-                        <h4 class="font-bold text-sm text-white mb-1">Automated Result</h4>
-                        <p class="text-xs text-brand-muted">Updates Google Sheet & Telegram</p>
-                    </div>
-
-                </div>
-
-                <!-- Simulation Control Console -->
-                <div class="flex flex-col items-center">
-                    <button id="runSimBtn" class="px-6 py-3 rounded-lg bg-brand-blue hover:bg-brand-blueLight text-white font-semibold text-sm flex items-center gap-2 mb-6 transition-all shadow-lg shadow-brand-blue/20">
-                        <i data-lucide="play" class="w-4 h-4 fill-current"></i>
-                        <span>Run Live Workflow Simulation</span>
-                    </button>
-
-                    <div id="simLog" class="w-full bg-brand-bg p-4 rounded-lg border border-brand-border font-mono text-xs text-brand-muted min-h-[100px] max-h-[160px] overflow-y-auto">
-                        <span class="text-brand-blue">></span> System Ready. Click button to test n8n workflow pipeline.
-                    </div>
-                </div>
-
-            </div>
+          <div class="text-[9px] uppercase tracking-[.23em] text-zinc-500">
+            AI Automation Engineer
+          </div>
 
         </div>
-    </section>
 
-    <section id="about" class="py-20 relative z-10">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                
-                <div>
-                    <span class="text-xs font-mono font-bold text-brand-red tracking-widest uppercase mb-2 block">ABOUT MY WORK</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold mb-6">I Don't Just Connect Tools. <br/><span class="text-brand-blue">I Build Automated Systems.</span></h2>
-                    
-                    <p class="text-brand-muted text-sm sm:text-base leading-relaxed mb-6">
-                        My primary role as an <strong class="text-white">AI Automation Engineer</strong> is to analyze manual business tasks and turn them into fast, error-free, automated workflows.
-                    </p>
+      </a>
 
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-4">
-                            <div class="w-8 h-8 rounded-lg bg-brand-blue/20 text-brand-blue flex items-center justify-center shrink-0 mt-0.5">
-                                <i data-lucide="clock" class="w-4 h-4"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-white text-base mb-1">1. Save Hours Every Day</h3>
-                                <p class="text-brand-muted text-xs sm:text-sm">Stop doing repetitive copy-pasting. Let automated n8n workflows work 24/7 for you.</p>
-                            </div>
-                        </li>
 
-                        <li class="flex items-start gap-4">
-                            <div class="w-8 h-8 rounded-lg bg-brand-red/20 text-brand-red flex items-center justify-center shrink-0 mt-0.5">
-                                <i data-lucide="layers" class="w-4 h-4"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-white text-base mb-1">2. Connect All Your Apps</h3>
-                                <p class="text-brand-muted text-xs sm:text-sm">Bridge Gmail, Google Sheets, Telegram, CRM tools, databases, and custom REST APIs smoothly.</p>
-                            </div>
-                        </li>
+      <div class="hidden md:flex items-center gap-8 text-sm">
 
-                        <li class="flex items-start gap-4">
-                            <div class="w-8 h-8 rounded-lg bg-brand-blue/20 text-brand-blue flex items-center justify-center shrink-0 mt-0.5">
-                                <i data-lucide="bot" class="w-4 h-4"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-white text-base mb-1">3. Deploy Smart AI Agents</h3>
-                                <p class="text-brand-muted text-xs sm:text-sm">Build AI chatbots and decision-making agents that read documents and reply to customers instantly.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+        <a href="#about" class="nav-link">About</a>
 
-                <!-- Intro Card Graphic -->
-                <div class="glass-card glass-card-red rounded-xl p-8 border border-brand-border relative overflow-hidden">
-                    <div class="text-xs font-mono text-brand-red font-bold mb-2 uppercase tracking-wider">ENGINEERING FOCUS</div>
-                    <div class="text-2xl sm:text-3xl font-black text-white mb-4">Simple, Reliable & Fast Automation</div>
-                    <p class="text-brand-muted text-sm leading-relaxed mb-6">
-                        I focus on clean logic without overcomplicating things. Every workflow is tested for accuracy, performance, and long-term stability.
-                    </p>
-                    
-                    <div class="grid grid-cols-2 gap-4 border-t border-brand-border pt-6">
-                        <div>
-                            <div class="text-xl font-extrabold text-brand-blue">Murad Shaikh</div>
-                            <div class="text-xs text-brand-muted font-mono">AI Automation Engineer</div>
-                        </div>
-                        <div>
-                            <div class="text-xl font-extrabold text-brand-red">Contact Direct</div>
-                            <a href="mailto:muradshaikh528@gmail.com" class="text-xs text-brand-blue hover:underline font-mono">muradshaikh528@gmail.com</a>
-                        </div>
-                    </div>
-                </div>
+        <a href="#work" class="nav-link">Work</a>
 
-            </div>
-        </div>
-    </section>
+        <a href="#capabilities" class="nav-link">Capabilities</a>
 
-    <section id="capabilities" class="py-20 relative z-10 border-t border-brand-border bg-brand-card/50">
-        <div class="max-w-7xl mx-auto px-4">
-            
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <span class="text-xs font-mono font-bold text-brand-blue tracking-widest uppercase mb-2 block">CAPABILITIES</span>
-                <h2 class="text-3xl font-extrabold mb-3">What I Build With</h2>
-                <p class="text-brand-muted text-sm">A practical stack for designing AI-powered business workflows.</p>
-            </div>
+        <a href="#process" class="nav-link">Process</a>
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <!-- Cap 1 -->
-                <div class="glass-card rounded-xl p-6 border border-brand-border">
-                    <div class="w-10 h-10 rounded-lg bg-brand-blue/20 text-brand-blue flex items-center justify-center mb-4 font-mono font-bold text-sm">
-                        01
-                    </div>
-                    <h3 class="font-bold text-lg text-white mb-2">n8n Workflow Automation</h3>
-                    <p class="text-brand-muted text-sm leading-relaxed">Multi-step visual workflows connecting business tools, applications, and custom logic.</p>
-                </div>
+      </div>
 
-                <!-- Cap 2 -->
-                <div class="glass-card glass-card-red rounded-xl p-6 border border-brand-border">
-                    <div class="w-10 h-10 rounded-lg bg-brand-red/20 text-brand-red flex items-center justify-center mb-4 font-mono font-bold text-sm">
-                        02
-                    </div>
-                    <h3 class="font-bold text-lg text-white mb-2">AI Agents</h3>
-                    <p class="text-brand-muted text-sm leading-relaxed">Intelligent bots capable of understanding customer requests and making automated decisions.</p>
-                </div>
 
-                <!-- Cap 3 -->
-                <div class="glass-card rounded-xl p-6 border border-brand-border">
-                    <div class="w-10 h-10 rounded-lg bg-brand-blue/20 text-brand-blue flex items-center justify-center mb-4 font-mono font-bold text-sm">
-                        03
-                    </div>
-                    <h3 class="font-bold text-lg text-white mb-2">API Integration</h3>
-                    <p class="text-brand-muted text-sm leading-relaxed">Connecting external web services so data moves automatically between platforms.</p>
-                </div>
+      <a
+        href="#contact"
+        class="primary-btn px-5 py-2.5 text-sm font-semibold"
+      >
+        Contact Me
+      </a>
 
-                <!-- Cap 4 -->
-                <div class="glass-card glass-card-red rounded-xl p-6 border border-brand-border">
-                    <div class="w-10 h-10 rounded-lg bg-brand-red/20 text-brand-red flex items-center justify-center mb-4 font-mono font-bold text-sm">
-                        04
-                    </div>
-                    <h3 class="font-bold text-lg text-white mb-2">Webhooks & Triggers</h3>
-                    <p class="text-brand-muted text-sm leading-relaxed">Triggering automated actions instantly whenever new forms or events occur.</p>
-                </div>
+    </div>
 
-                <!-- Cap 5 -->
-                <div class="glass-card rounded-xl p-6 border border-brand-border">
-                    <div class="w-10 h-10 rounded-lg bg-brand-blue/20 text-brand-blue flex items-center justify-center mb-4 font-mono font-bold text-sm">
-                        05
-                    </div>
-                    <h3 class="font-bold text-lg text-white mb-2">Google Sheets & Databases</h3>
-                    <p class="text-brand-muted text-sm leading-relaxed">Logging and updating real-time records automatically into structured spreadsheets.</p>
-                </div>
+  </nav>
 
-                <!-- Cap 6 -->
-                <div class="glass-card glass-card-red rounded-xl p-6 border border-brand-border">
-                    <div class="w-10 h-10 rounded-lg bg-brand-red/20 text-brand-red flex items-center justify-center mb-4 font-mono font-bold text-sm">
-                        06
-                    </div>
-                    <h3 class="font-bold text-lg text-white mb-2">Telegram Automation</h3>
-                    <p class="text-brand-muted text-sm leading-relaxed">Interactive Telegram bots for team notifications, patient booking, and live customer support.</p>
-                </div>
 
-            </div>
+
+  <!-- HERO -->
+
+  <section
+    id="home"
+    class="hero hero-grid"
+  >
+
+    <div class="hero-circle"></div>
+
+    <div class="wrap relative z-10">
+
+      <div class="reveal">
+
+        <div class="availability">
+
+          <span class="green-dot"></span>
+
+          Available for new projects
 
         </div>
-    </section>
 
-    <section id="projects" class="py-20 relative z-10">
-        <div class="max-w-7xl mx-auto px-4">
-            
-            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-6">
-                <div>
-                    <span class="text-xs font-mono font-bold text-brand-blue tracking-widest uppercase mb-2 block">SELECTED WORK</span>
-                    <h2 class="text-3xl font-extrabold">Featured Automation Projects</h2>
-                </div>
+      </div>
 
-                <!-- Category Filters -->
-                <div class="flex items-center gap-2">
-                    <button data-filter="all" class="filter-btn active px-4 py-2 rounded-lg text-xs font-semibold bg-brand-blue text-white transition-all">All Projects</button>
-                    <button data-filter="agent" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-brand-surface border border-brand-border text-brand-muted hover:text-white transition-all">AI Agents</button>
-                    <button data-filter="workflow" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-brand-surface border border-brand-border text-brand-muted hover:text-white transition-all">Workflows</button>
-                </div>
-            </div>
 
-            <!-- Projects Grid -->
-            <div class="grid md:grid-cols-2 gap-6">
-                
-                <!-- Project 1 (Featured) -->
-                <div class="project-card glass-card rounded-xl p-6 border border-brand-blue/60 md:col-span-2 relative cursor-pointer" data-category="agent" onclick="openProjectModal(1)">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="px-3 py-1 rounded bg-brand-blue/20 text-brand-blue text-xs font-bold uppercase font-mono">01 • FEATURED PROJECT</span>
-                        <i data-lucide="external-link" class="w-4 h-4 text-brand-blue"></i>
-                    </div>
-                    <h3 class="text-xl sm:text-2xl font-bold text-white mb-3">AI Hospital Appointment Booking & Management Agent</h3>
-                    <p class="text-brand-muted text-sm mb-4 leading-relaxed">
-                        An AI appointment management system built for healthcare clinics. It speaks naturally with patients on Telegram, checks doctor availability in Google Sheets in real-time, books appointments, and sends automated reminder alerts.
-                    </p>
-                    <div class="flex flex-wrap gap-2 text-xs font-mono">
-                        <span class="px-2.5 py-1 rounded bg-brand-surface border border-brand-border text-brand-muted">n8n Workflow</span>
-                        <span class="px-2.5 py-1 rounded bg-brand-surface border border-brand-border text-brand-muted">AI Agent</span>
-                        <span class="px-2.5 py-1 rounded bg-brand-surface border border-brand-border text-brand-muted">Telegram API</span>
-                        <span class="px-2.5 py-1 rounded bg-brand-surface border border-brand-border text-brand-muted">Google Sheets</span>
-                    </div>
-                </div>
+      <div class="mt-9 reveal delay-1">
 
-                <!-- Project 2 -->
-                <div class="project-card glass-card rounded-xl p-6 border border-brand-border cursor-pointer" data-category="workflow" onclick="openProjectModal(2)">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-xs font-mono font-bold text-brand-red">PROJECT 02</span>
-                        <i data-lucide="external-link" class="w-4 h-4 text-brand-muted"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">AI Lead Management Automation & Scoring</h3>
-                    <p class="text-brand-muted text-xs sm:text-sm mb-4 leading-relaxed">
-                        Captures lead forms, evaluates sales potential using AI scoring logic, categorizes prospects, and dispatches instant Telegram alerts to sales reps.
-                    </p>
-                    <div class="flex flex-wrap gap-2 text-xs font-mono">
-                        <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-muted">n8n</span>
-                        <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-muted">Lead Scoring</span>
-                        <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-muted">Telegram</span>
-                    </div>
-                </div>
+        <div class="hero-title">
 
-                <!-- Project 3 -->
-                <div class="project-card glass-card rounded-xl p-6 border border-brand-border cursor-pointer" data-category="agent" onclick="openProjectModal(3)">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-xs font-mono font-bold text-brand-blue">PROJECT 03</span>
-                        <i data-lucide="external-link" class="w-4 h-4 text-brand-muted"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">AI Business Appointment Scheduling & Reminders</h3>
-                    <p class="text-brand-muted text-xs sm:text-sm mb-4 leading-relaxed">
-                        Automates discovery call scheduling, converts global client timezones automatically, and triggers automated reminder alerts prior to meetings.
-                    </p>
-                    <div class="flex flex-wrap gap-2 text-xs font-mono">
-                        <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-muted">n8n</span>
-                        <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-muted">AI Agent</span>
-                        <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-muted">Google Sheets</span>
-                    </div>
-                </div>
+          AI
 
-                <!-- Project 4 -->
-                <div class="project-card glass-card rounded-xl p-6 border border-brand-border cursor-pointer" data-category="workflow" onclick="openProjectModal(4)">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-xs font-mono font-bold text-brand-red">PROJECT 04</span>
-                        <i data-lucide="external-link" class="w-4 h-4 text-brand-muted"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">AI News Automation & Collector</h3>
-                    <p class="text-brand-muted text-xs sm:text-sm mb-4 leading-relaxed">
-                        Collects stories from RSS news feeds, uses AI to remove duplicates and write brief bullet summaries, then posts updates directly into Telegram.
-                    </p>
-                    <div class="flex flex-wrap gap-2 text-xs font-mono">
-                        <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-muted">RSS Parser</span>
-                        <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-muted">AI Summarizer</span>
-                        <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-muted">Telegram</span>
-                    </div>
-                </div>
+          <br>
 
-                <!-- Project 5 -->
-                <div class="project-card glass-card rounded-xl p-6 border border-brand-border cursor-pointer" data-category="agent" onclick="openProjectModal(5)">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-xs font-mono font-bold text-brand-blue">PROJECT 05</span>
-                        <i data-lucide="external-link" class="w-4 h-4 text-brand-muted"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">AI Knowledge Base & Customer Support Agent</h3>
-                    <p class="text-brand-muted text-xs sm:text-sm mb-4 leading-relaxed">
-                        An AI-powered support bot that reads company documentation files to answer customer questions automatically, reducing support team workload.
-                    </p>
-                    <div class="flex flex-wrap gap-2 text-xs font-mono">
-                        <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-muted">RAG Vector DB</span>
-                        <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-muted">Support Bot</span>
-                        <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-muted">n8n</span>
-                    </div>
-                </div>
+          <span class="blue-word">
+            Automation
+          </span>
 
-            </div>
+          <br>
+
+          Engineer.
 
         </div>
-    </section>
 
-    <section id="process" class="py-20 relative z-10 border-t border-brand-border bg-brand-card/50">
-        <div class="max-w-7xl mx-auto px-4">
-            
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <span class="text-xs font-mono font-bold text-brand-red tracking-widest uppercase mb-2 block">MY APPROACH</span>
-                <h2 class="text-3xl font-extrabold mb-3">4 Steps From Problem To Automation</h2>
-                <p class="text-brand-muted text-sm">How I turn manual work into a simple, automated workflow.</p>
-            </div>
+      </div>
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <div class="glass-card rounded-xl p-6 border border-brand-border">
-                    <div class="text-brand-blue font-mono font-extrabold text-2xl mb-2">01</div>
-                    <h3 class="font-bold text-base text-white mb-2">1. Discover</h3>
-                    <p class="text-brand-muted text-xs leading-relaxed">Identify repetitive tasks, inputs, tools involved, and desired outputs.</p>
-                </div>
 
-                <div class="glass-card rounded-xl p-6 border border-brand-border">
-                    <div class="text-brand-red font-mono font-extrabold text-2xl mb-2">02</div>
-                    <h3 class="font-bold text-base text-white mb-2">2. Design</h3>
-                    <p class="text-brand-muted text-xs leading-relaxed">Map the data paths, AI decision logic, triggers, and error-handling steps.</p>
-                </div>
+      <div class="mt-12 grid lg:grid-cols-[1fr_auto] gap-10 items-end reveal delay-2">
 
-                <div class="glass-card rounded-xl p-6 border border-brand-border">
-                    <div class="text-brand-blue font-mono font-extrabold text-2xl mb-2">03</div>
-                    <h3 class="font-bold text-base text-white mb-2">3. Build</h3>
-                    <p class="text-brand-muted text-xs leading-relaxed">Construct nodes in n8n, connect AI LLMs, setup webhooks, and integrate APIs.</p>
-                </div>
+        <div class="hero-small max-w-2xl">
 
-                <div class="glass-card rounded-xl p-6 border border-brand-border">
-                    <div class="text-brand-red font-mono font-extrabold text-2xl mb-2">04</div>
-                    <h3 class="font-bold text-base text-white mb-2">4. Test & Launch</h3>
-                    <p class="text-brand-muted text-xs leading-relaxed">Run real test data, fix edge cases, and launch the automated system.</p>
-                </div>
+          <p class="text-xl md:text-2xl leading-relaxed text-zinc-600">
 
-            </div>
+            I build intelligent workflows that turn
+            <strong class="text-zinc-900">
+              repetitive business processes
+            </strong>
+            into practical automation.
+
+          </p>
 
         </div>
-    </section>
 
-    <section id="contact" class="py-20 relative z-10 scroll-mt-20">
-        <div class="max-w-7xl mx-auto px-4">
-            
-            <div class="glass-card rounded-2xl p-8 sm:p-12 border border-brand-border text-center max-w-3xl mx-auto">
-                <span class="text-xs font-mono font-bold text-brand-blue tracking-widest uppercase mb-2 block">CONTACT ME</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold mb-2">Ready To Automate Your Work?</h2>
-                <div class="text-xs font-mono font-bold text-brand-red mb-6 uppercase">MURAD SHAIKH • AI AUTOMATION ENGINEER</div>
-                
-                <p class="text-brand-muted text-sm mb-8 leading-relaxed">
-                    Have a repetitive process you want to turn into an automated system? Send me a message or email me directly at <strong class="text-white">muradshaikh528@gmail.com</strong>.
-                </p>
 
-                <!-- Action Links -->
-                <div class="flex flex-wrap items-center justify-center gap-4 mb-8">
-                    
-                    <a href="mailto:muradshaikh528@gmail.com" class="px-6 py-3.5 rounded-lg bg-brand-blue hover:bg-brand-blueLight text-white font-semibold text-sm flex items-center gap-2 shadow-lg shadow-brand-blue/20 transition-all">
-                        <i data-lucide="mail" class="w-4 h-4"></i>
-                        <span>Email Me Directly</span>
-                    </a>
+        <div class="flex flex-col sm:flex-row gap-3">
 
-                    <a href="https://wa.me/923294282528" target="_blank" class="px-6 py-3.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm flex items-center gap-2 shadow-lg transition-all">
-                        <i data-lucide="message-square" class="w-4 h-4"></i>
-                        <span>WhatsApp (+92 329 4282528)</span>
-                    </a>
+          <a
+            href="#work"
+            class="blue-btn px-7 py-4 font-semibold"
+          >
+            Explore My Work
+          </a>
 
-                    <a href="https://www.linkedin.com/in/murad-shaikh-0a223a399/" target="_blank" class="px-6 py-3.5 rounded-lg border border-brand-border bg-brand-surface hover:text-brand-blue text-white font-semibold text-sm flex items-center gap-2 transition-all">
-                        <i data-lucide="linkedin" class="w-4 h-4"></i>
-                        <span>LinkedIn</span>
-                    </a>
-
-                </div>
-
-                <!-- Quick Copy Buttons -->
-                <div class="flex flex-wrap items-center justify-center gap-6 pt-6 border-t border-brand-border text-xs font-mono text-brand-muted">
-                    
-                    <button onclick="copyText('muradshaikh528@gmail.com', 'Email copied to clipboard!')" class="hover:text-white flex items-center gap-1.5 transition-colors bg-brand-surface px-3 py-1.5 rounded border border-brand-border">
-                        <i data-lucide="mail" class="w-3.5 h-3.5 text-brand-blue"></i>
-                        <span>muradshaikh528@gmail.com</span>
-                        <i data-lucide="copy" class="w-3 h-3 text-brand-muted ml-1"></i>
-                    </button>
-
-                    <button onclick="copyText('+923294282528', 'Phone number copied!')" class="hover:text-white flex items-center gap-1.5 transition-colors bg-brand-surface px-3 py-1.5 rounded border border-brand-border">
-                        <i data-lucide="phone" class="w-3.5 h-3.5 text-brand-red"></i>
-                        <span>+92 329 4282528</span>
-                        <i data-lucide="copy" class="w-3 h-3 text-brand-muted ml-1"></i>
-                    </button>
-
-                    <a href="https://www.instagram.com/muradshaikh118/" target="_blank" class="hover:text-white flex items-center gap-1.5 transition-colors bg-brand-surface px-3 py-1.5 rounded border border-brand-border">
-                        <i data-lucide="instagram" class="w-3.5 h-3.5 text-brand-red"></i>
-                        <span>Instagram</span>
-                    </a>
-
-                </div>
-
-            </div>
+          <a
+            href="#contact"
+            class="outline-btn px-7 py-4 font-semibold"
+          >
+            Start a Project
+          </a>
 
         </div>
-    </section>
 
-    <footer class="py-8 relative z-10 border-t border-brand-border text-xs font-mono text-brand-muted bg-brand-bg">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div>
-                © <span id="year"></span> <strong class="text-white">MURAD SHAIKH</strong> • AI AUTOMATION ENGINEER
-            </div>
-            <div class="flex items-center gap-3">
-                <a href="mailto:muradshaikh528@gmail.com" class="hover:text-brand-blue">muradshaikh528@gmail.com</a>
-                <span>•</span>
-                <span>n8n & AI Agent Automation</span>
-            </div>
+      </div>
+
+
+      <div class="mt-20 pt-7 border-t border-black/10 flex flex-col md:flex-row justify-between gap-5 reveal delay-3">
+
+        <div class="text-sm text-zinc-500">
+          Building with n8n + AI
         </div>
-    </footer>
 
-    <!-- Project Details Modal -->
-    <div id="projectModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden">
-        <div class="glass-card rounded-xl max-w-xl w-full p-6 border border-brand-blue relative max-h-[90vh] overflow-y-auto">
-            <button onclick="closeModal()" class="absolute top-4 right-4 p-1.5 rounded-lg bg-brand-surface text-brand-muted hover:text-white border border-brand-border">
-                <i data-lucide="x" class="w-4 h-4"></i>
+        <div class="flex flex-wrap gap-6 text-sm text-zinc-500">
+
+          <span>AI Agents</span>
+          <span>APIs</span>
+          <span>Webhooks</span>
+          <span>Google Sheets</span>
+          <span>Telegram</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- BLACK STRIP -->
+
+  <div class="strip">
+
+    <div class="wrap overflow-hidden">
+
+      <div class="strip-inner">
+
+        <span class="strip-text">AI Automation</span>
+        <span class="strip-dot">●</span>
+
+        <span class="strip-text">n8n Workflows</span>
+        <span class="strip-dot">●</span>
+
+        <span class="strip-text">AI Agents</span>
+        <span class="strip-dot">●</span>
+
+        <span class="strip-text">Business Automation</span>
+        <span class="strip-dot">●</span>
+
+        <span class="strip-text">API Integration</span>
+        <span class="strip-dot">●</span>
+
+        <span class="strip-text">AI Automation</span>
+        <span class="strip-dot">●</span>
+
+        <span class="strip-text">n8n Workflows</span>
+        <span class="strip-dot">●</span>
+
+        <span class="strip-text">AI Agents</span>
+        <span class="strip-dot">●</span>
+
+        <span class="strip-text">Business Automation</span>
+        <span class="strip-dot">●</span>
+
+        <span class="strip-text">API Integration</span>
+        <span class="strip-dot">●</span>
+
+        <span class="strip-text">AI Automation</span>
+        <span class="strip-dot">●</span>
+
+        <span class="strip-text">n8n Workflows</span>
+        <span class="strip-dot">●</span>
+
+        <span class="strip-text">AI Agents</span>
+        <span class="strip-dot">●</span>
+
+        <span class="strip-text">Business Automation</span>
+        <span class="strip-dot">●</span>
+
+        <span class="strip-text">API Integration</span>
+        <span class="strip-dot">●</span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- ABOUT -->
+
+  <section id="about" class="section">
+
+    <div class="wrap">
+
+      <div class="grid lg:grid-cols-[.75fr_1.25fr] gap-16 items-center">
+
+        <div>
+
+          <div class="section-number mb-5">
+            01 / ABOUT
+          </div>
+
+          <div class="about-card min-h-[430px] flex items-end p-8 md:p-12">
+
+            <div class="about-big absolute left-7 top-12">
+              AI
+            </div>
+
+            <div class="relative z-10">
+
+              <div class="text-sm text-zinc-400 mb-3">
+                MURAD SHAIKH
+              </div>
+
+              <div class="text-3xl md:text-4xl font-bold">
+                AI Automation Engineer
+              </div>
+
+              <div class="mt-5 text-zinc-400 leading-relaxed max-w-sm">
+                Designing workflows that connect people,
+                data, AI and business systems.
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <div class="eyebrow mb-6">
+            The approach
+          </div>
+
+          <h2 class="section-heading">
+
+            Automation
+            should make
+            <span class="blue-word">
+              work simpler.
+            </span>
+
+          </h2>
+
+
+          <div class="mt-8 space-y-5 max-w-2xl text-lg text-zinc-600 leading-relaxed">
+
+            <p>
+              I build automation around actual business processes,
+              not around technology for its own sake.
+            </p>
+
+            <p>
+              My focus is n8n, AI agents, APIs, webhooks,
+              messaging systems, data workflows and business logic.
+            </p>
+
+            <p>
+              Every workflow starts with one question:
+              <strong class="text-zinc-900">
+                what repetitive task can be made easier?
+              </strong>
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- PROJECTS -->
+
+  <section id="work" class="project-section py-32">
+
+    <div class="wrap">
+
+      <div class="grid lg:grid-cols-[.7fr_1.3fr] gap-16 mb-20">
+
+        <div>
+
+          <div class="project-index">
+            02 / SELECTED WORK
+          </div>
+
+        </div>
+
+        <div>
+
+          <h2 class="section-heading">
+
+            Systems I've
+            <span class="blue">
+              built.
+            </span>
+
+          </h2>
+
+          <p class="project-intro text-lg leading-relaxed mt-7 max-w-2xl">
+
+            Five completed automation systems demonstrating how
+            AI and workflow automation can solve different
+            business problems.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- PROJECT 01 -->
+
+      <article class="project">
+
+        <div class="grid lg:grid-cols-[.8fr_1.2fr] gap-14 items-center">
+
+          <div>
+
+            <div class="project-index mb-6">
+              01 / HEALTHCARE
+            </div>
+
+            <h3 class="project-title">
+              AI Hospital
+              Appointment
+              Booking Agent
+            </h3>
+
+            <p class="project-description mt-7 text-lg">
+
+              A conversational system for collecting patient
+              information, checking doctor availability and
+              managing appointment bookings.
+
+            </p>
+
+            <div class="flex flex-wrap gap-2 mt-7">
+
+              <span class="project-tag">n8n</span>
+              <span class="project-tag">AI Agent</span>
+              <span class="project-tag">Telegram</span>
+              <span class="project-tag">Google Sheets</span>
+
+            </div>
+
+            <button
+              onclick="openModal('hospital')"
+              class="case-link mt-8"
+            >
+              View case study →
             </button>
-            <div id="modalBody"></div>
+
+          </div>
+
+
+          <div class="project-image visual-blue">
+
+            <div class="workflow">
+
+              <div class="node node-blue">
+                PATIENT
+              </div>
+
+              <div class="arrow">
+                →
+              </div>
+
+              <div class="node node-blue">
+                AI AGENT
+              </div>
+
+              <div class="arrow">
+                →
+              </div>
+
+              <div class="node">
+                DOCTOR
+                <br>
+                AVAILABILITY
+              </div>
+
+              <div class="arrow">
+                →
+              </div>
+
+              <div class="node node-green">
+                BOOKED
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
+
+      </article>
+
+
+
+      <!-- PROJECT 02 -->
+
+      <article class="project">
+
+        <div class="grid lg:grid-cols-[1.2fr_.8fr] gap-14 items-center">
+
+          <div class="project-image visual-green order-2 lg:order-1">
+
+            <div class="workflow">
+
+              <div class="node">
+                LEAD
+              </div>
+
+              <div class="arrow">
+                →
+              </div>
+
+              <div class="node node-blue">
+                DATA
+              </div>
+
+              <div class="arrow">
+                →
+              </div>
+
+              <div class="node node-blue">
+                SCORE
+                <br>
+                0–8
+              </div>
+
+              <div class="arrow">
+                →
+              </div>
+
+              <div class="node node-green">
+                HOT /
+                <br>
+                WARM /
+                <br>
+                COLD
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="order-1 lg:order-2">
+
+            <div class="project-index mb-6">
+              02 / SALES
+            </div>
+
+            <h3 class="project-title">
+              AI Lead
+              Management
+              Automation
+            </h3>
+
+            <p class="project-description mt-7 text-lg">
+
+              Captures lead information, applies structured
+              scoring and categorizes prospects for follow-up.
+
+            </p>
+
+            <div class="flex flex-wrap gap-2 mt-7">
+
+              <span class="project-tag">n8n</span>
+              <span class="project-tag">AI</span>
+              <span class="project-tag">CRM</span>
+              <span class="project-tag">Telegram</span>
+              <span class="project-tag">Gmail</span>
+
+            </div>
+
+            <button
+              onclick="openModal('lead')"
+              class="case-link mt-8"
+            >
+              View case study →
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- PROJECT 03 -->
+
+      <article class="project">
+
+        <div class="grid lg:grid-cols-[.8fr_1.2fr] gap-14 items-center">
+
+          <div>
+
+            <div class="project-index mb-6">
+              03 / SCHEDULING
+            </div>
+
+            <h3 class="project-title">
+              AI Business
+              Appointment
+              Scheduling
+            </h3>
+
+            <p class="project-description mt-7 text-lg">
+
+              A conversational scheduler that manages
+              appointment requests, available slots and
+              automated reminders.
+
+            </p>
+
+            <div class="flex flex-wrap gap-2 mt-7">
+
+              <span class="project-tag">n8n</span>
+              <span class="project-tag">AI Agent</span>
+              <span class="project-tag">Telegram</span>
+              <span class="project-tag">Google Sheets</span>
+
+            </div>
+
+            <button
+              onclick="openModal('scheduler')"
+              class="case-link mt-8"
+            >
+              View case study →
+            </button>
+
+          </div>
+
+
+          <div class="project-image visual-neutral">
+
+            <div class="workflow">
+
+              <div class="node node-blue">
+                CUSTOMER
+              </div>
+
+              <div class="arrow">
+                →
+              </div>
+
+              <div class="node node-blue">
+                AI
+                <br>
+                SCHEDULER
+              </div>
+
+              <div class="arrow">
+                →
+              </div>
+
+              <div class="node">
+                SLOT
+              </div>
+
+              <div class="arrow">
+                →
+              </div>
+
+              <div class="node node-green">
+                REMINDER
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- PROJECT 04 -->
+
+      <article class="project">
+
+        <div class="grid lg:grid-cols-[1.2fr_.8fr] gap-14 items-center">
+
+          <div class="project-image visual-red order-2 lg:order-1">
+
+            <div class="workflow">
+
+              <div class="node">
+                RSS
+              </div>
+
+              <div class="arrow">
+                →
+              </div>
+
+              <div class="node node-blue">
+                FILTER
+              </div>
+
+              <div class="arrow">
+                →
+              </div>
+
+              <div class="node node-blue">
+                AI
+                <br>
+                PROCESS
+              </div>
+
+              <div class="arrow">
+                →
+              </div>
+
+              <div class="node node-green">
+                TELEGRAM
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="order-1 lg:order-2">
+
+            <div class="project-index mb-6">
+              04 / INFORMATION
+            </div>
+
+            <h3 class="project-title">
+              AI News
+              Automation
+            </h3>
+
+            <p class="project-description mt-7 text-lg">
+
+              Collects news from RSS feeds, filters content,
+              processes relevant information with AI and
+              delivers it through Telegram.
+
+            </p>
+
+            <div class="flex flex-wrap gap-2 mt-7">
+
+              <span class="project-tag">RSS</span>
+              <span class="project-tag">n8n</span>
+              <span class="project-tag">AI Agent</span>
+              <span class="project-tag">Telegram</span>
+
+            </div>
+
+            <button
+              onclick="openModal('news')"
+              class="case-link mt-8"
+            >
+              View case study →
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- PROJECT 05 -->
+
+      <article class="project">
+
+        <div class="grid lg:grid-cols-[.8fr_1.2fr] gap-14 items-center">
+
+          <div>
+
+            <div class="project-index mb-6">
+              05 / CONTENT
+            </div>
+
+            <h3 class="project-title">
+              AI Content
+              Creator
+              Automation
+            </h3>
+
+            <p class="project-description mt-7 text-lg">
+
+              A content production workflow that generates
+              post content and images with AI while keeping human
+              approval before final publishing actions.
+
+            </p>
+
+            <div class="flex flex-wrap gap-2 mt-7">
+
+              <span class="project-tag">n8n</span>
+              <span class="project-tag">AI</span>
+              <span class="project-tag">Telegram</span>
+              <span class="project-tag">Image Generation</span>
+
+            </div>
+
+            <button
+              onclick="openModal('content')"
+              class="case-link mt-8"
+            >
+              View case study →
+            </button>
+
+          </div>
+
+
+          <div class="project-image visual-blue">
+
+            <div class="workflow">
+
+              <div class="node">
+                IDEA
+              </div>
+
+              <div class="arrow">
+                →
+              </div>
+
+              <div class="node node-blue">
+                AI
+                <br>
+                CONTENT
+              </div>
+
+              <div class="arrow">
+                →
+              </div>
+
+              <div class="node">
+                IMAGE
+              </div>
+
+              <div class="arrow">
+                →
+              </div>
+
+              <div class="node node-green">
+                APPROVAL
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
     </div>
 
-    <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-brand-card border border-brand-blue px-4 py-3 rounded-lg flex items-center gap-2 text-xs font-mono text-white shadow-xl">
-        <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-blue"></i>
-        <span id="toastText">Copied to clipboard!</span>
+  </section>
+
+
+
+  <!-- CAPABILITIES -->
+
+  <section id="capabilities" class="section">
+
+    <div class="wrap">
+
+      <div class="grid lg:grid-cols-[.7fr_1.3fr] gap-16">
+
+        <div>
+
+          <div class="section-number mb-5">
+            03 / CAPABILITIES
+          </div>
+
+          <h2 class="section-heading">
+
+            What I
+            <span class="blue-word">
+              build.
+            </span>
+
+          </h2>
+
+          <p class="mt-7 text-lg text-zinc-600 leading-relaxed max-w-md">
+
+            Practical automation systems built around
+            specific business processes.
+
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <div class="capability-row">
+
+            <div class="grid md:grid-cols-[60px_1fr] gap-5">
+
+              <div class="capability-number">
+                01
+              </div>
+
+              <div>
+
+                <h3 class="text-2xl font-bold">
+                  n8n Workflow Automation
+                </h3>
+
+                <p class="text-zinc-500 mt-2 leading-relaxed">
+                  Multi-step workflows connecting triggers,
+                  logic, data and actions.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="capability-row">
+
+            <div class="grid md:grid-cols-[60px_1fr] gap-5">
+
+              <div class="capability-number">
+                02
+              </div>
+
+              <div>
+
+                <h3 class="text-2xl font-bold">
+                  AI Agents
+                </h3>
+
+                <p class="text-zinc-500 mt-2 leading-relaxed">
+                  AI-powered systems that understand requests,
+                  process information and assist with decisions.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="capability-row">
+
+            <div class="grid md:grid-cols-[60px_1fr] gap-5">
+
+              <div class="capability-number">
+                03
+              </div>
+
+              <div>
+
+                <h3 class="text-2xl font-bold">
+                  API & Webhook Integration
+                </h3>
+
+                <p class="text-zinc-500 mt-2 leading-relaxed">
+                  Connecting different applications and services
+                  to create complete automated systems.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="capability-row">
+
+            <div class="grid md:grid-cols-[60px_1fr] gap-5">
+
+              <div class="capability-number">
+                04
+              </div>
+
+              <div>
+
+                <h3 class="text-2xl font-bold">
+                  Business Process Automation
+                </h3>
+
+                <p class="text-zinc-500 mt-2 leading-relaxed">
+                  Turning repetitive operational tasks into
+                  structured workflows.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="capability-row">
+
+            <div class="grid md:grid-cols-[60px_1fr] gap-5">
+
+              <div class="capability-number">
+                05
+              </div>
+
+              <div>
+
+                <h3 class="text-2xl font-bold">
+                  Data & Communication Workflows
+                </h3>
+
+                <p class="text-zinc-500 mt-2 leading-relaxed">
+                  Google Sheets, Telegram, Gmail and other services
+                  connected into useful business automation.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <script>
-        // Initialize Icons
-        lucide.createIcons();
+  </section>
 
-        document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Mobile Nav Toggle
-        const menuBtn = document.getElementById('menuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        document.querySelectorAll('.mobile-nav-link').forEach(link => {
-            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
-        });
 
-        // Copy Text Helper
-        function copyText(text, msg) {
-            const ta = document.createElement('textarea');
-            ta.value = text;
-            document.body.appendChild(ta);
-            ta.select();
-            try {
-                document.execCommand('copy');
-                showToast(msg);
-            } catch (err) {
-                console.error(err);
-            }
-            document.body.removeChild(ta);
-        }
+  <!-- PROCESS -->
 
-        function showToast(msg) {
-            const toast = document.getElementById('toast');
-            document.getElementById('toastText').textContent = msg;
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 2500);
-        }
+  <section id="process" class="section bg-[#e9e8e2]">
 
-        // Background Particle Canvas
-        const canvas = document.getElementById('bgCanvas');
-        const ctx = canvas.getContext('2d');
-        let w, h, particles = [];
+    <div class="wrap">
 
-        function initCanvas() {
-            w = canvas.width = window.innerWidth;
-            h = canvas.height = window.innerHeight;
-            particles = [];
-            const count = Math.floor((w * h) / 25000);
-            for (let i = 0; i < count; i++) {
-                particles.push({
-                    x: Math.random() * w,
-                    y: Math.random() * h,
-                    vx: (Math.random() - 0.5) * 0.4,
-                    vy: (Math.random() - 0.5) * 0.4,
-                    color: Math.random() > 0.5 ? '#2563eb' : '#ef4444'
-                });
-            }
-        }
+      <div class="grid lg:grid-cols-[.7fr_1.3fr] gap-16 mb-16">
 
-        function drawCanvas() {
-            ctx.clearRect(0, 0, w, h);
-            particles.forEach((p, i) => {
-                p.x += p.vx;
-                p.y += p.vy;
-                if (p.x < 0 || p.x > w) p.vx *= -1;
-                if (p.y < 0 || p.y > h) p.vy *= -1;
+        <div>
 
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, 1.2, 0, Math.PI * 2);
-                ctx.fillStyle = p.color;
-                ctx.fill();
+          <div class="section-number">
+            04 / PROCESS
+          </div>
 
-                for (let j = i + 1; j < particles.length; j++) {
-                    const p2 = particles[j];
-                    const dx = p.x - p2.x;
-                    const dy = p.y - p2.y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < 90) {
-                        ctx.beginPath();
-                        ctx.moveTo(p.x, p.y);
-                        ctx.lineTo(p2.x, p2.y);
-                        ctx.strokeStyle = `rgba(255, 255, 255, ${0.05 * (1 - dist / 90)})`;
-                        ctx.stroke();
-                    }
-                }
-            });
-            requestAnimationFrame(drawCanvas);
-        }
+        </div>
 
-        window.addEventListener('resize', initCanvas);
+        <div>
 
-        // Simulator Logic
-        const runSimBtn = document.getElementById('runSimBtn');
-        const simLog = document.getElementById('simLog');
+          <h2 class="section-heading">
 
-        runSimBtn.addEventListener('click', () => {
-            simLog.innerHTML = '';
-            resetNodes();
+            From problem
+            to
+            <span class="blue-word">
+              automation.
+            </span>
 
-            // Step 1
-            setTimeout(() => {
-                setNodeActive('simNode1', '#2563eb');
-                logMsg("14:00:01 [WEBHOOK] Received submission: 'New Appointment Booking - Clinic Patient'");
-            }, 200);
+          </h2>
 
-            // Step 2
-            setTimeout(() => {
-                setNodeActive('simNode2', '#ef4444');
-                logMsg("14:00:02 [AI AGENT] Processing request with LLM model...");
-                logMsg("14:00:02 [AI AGENT] Verified schedule slot: Friday at 10:00 AM");
-            }, 1000);
+        </div>
 
-            // Step 3
-            setTimeout(() => {
-                setNodeActive('simNode3', '#10b981');
-                logMsg("14:00:03 [GOOGLE SHEETS] Appointment row inserted into database.");
-                logMsg("14:00:03 [TELEGRAM] Confirmation alert dispatched to doctor & patient.");
-                logMsg("✔ [STATUS 200] Workflow execution completed successfully!");
-            }, 1800);
-        });
+      </div>
 
-        function resetNodes() {
-            ['simNode1', 'simNode2', 'simNode3'].forEach(id => {
-                const el = document.getElementById(id);
-                el.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                el.style.boxShadow = 'none';
-            });
-        }
 
-        function setNodeActive(id, color) {
-            const el = document.getElementById(id);
-            el.style.borderColor = color;
-            el.style.boxShadow = `0 0 15px ${color}44`;
-        }
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
 
-        function logMsg(msg) {
-            const div = document.createElement('div');
-            div.className = 'mb-1';
-            div.innerHTML = `<span class="text-brand-blue">></span> ${msg}`;
-            simLog.appendChild(div);
-            simLog.scrollTop = simLog.scrollHeight;
-        }
+        <div class="process-box">
 
-        // Project Filters
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const projectCards = document.querySelectorAll('.project-card');
+          <div class="process-icon">
+            01
+          </div>
 
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => {
-                    b.classList.remove('bg-brand-blue', 'text-white');
-                    b.classList.add('bg-brand-surface', 'text-brand-muted');
-                });
-                btn.classList.add('bg-brand-blue', 'text-white');
-                btn.classList.remove('bg-brand-surface', 'text-brand-muted');
+          <h3 class="text-xl font-bold mt-7">
+            Understand
+          </h3>
 
-                const filter = btn.getAttribute('data-filter');
-                projectCards.forEach(card => {
-                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
+          <p class="text-zinc-500 mt-3 leading-relaxed">
+            Identify the repetitive process and define the desired result.
+          </p>
 
-        // Project Modal Info
-        const projectDetails = {
-            1: {
-                title: "AI Hospital Appointment Booking & Management Agent",
-                role: "MURAD SHAIKH • AI AUTOMATION ENGINEER",
-                desc: "An automated healthcare assistant running over Telegram. Patients chat naturally, and the system checks doctor schedules in Google Sheets, reserves timeslots, and sends automated meeting alerts."
-            },
-            2: {
-                title: "AI Lead Management Automation & Scoring",
-                role: "MURAD SHAIKH • AI AUTOMATION ENGINEER",
-                desc: "Ingests prospect form submissions, uses AI scoring logic to evaluate lead buying intent, ranks them 0-100, and sends immediate Telegram alerts to sales reps."
-            },
-            3: {
-                title: "AI Business Appointment Scheduling & Reminders",
-                role: "MURAD SHAIKH • AI AUTOMATION ENGINEER",
-                desc: "Manages client discovery calls, converts timezones automatically, and sends automated reminder messages prior to scheduled meetings."
-            },
-            4: {
-                title: "AI News Automation & Collector",
-                role: "MURAD SHAIKH • AI AUTOMATION ENGINEER",
-                desc: "Monitors RSS feeds, removes duplicate articles, synthesizes bullet points with LLMs, and broadcasts clean updates directly to Telegram channels."
-            },
-            5: {
-                title: "AI Knowledge Base & Customer Support Agent",
-                role: "MURAD SHAIKH • AI AUTOMATION ENGINEER",
-                desc: "A retrieval support bot that reads company documentation files and answers repetitive support questions accurately 24/7."
-            }
-        };
+        </div>
 
-        function openProjectModal(id) {
-            const data = projectDetails[id];
-            if (!data) return;
 
-            document.getElementById('modalBody').innerHTML = `
-                <div class="text-xs font-mono font-bold text-brand-red uppercase mb-1">${data.role}</div>
-                <h3 class="text-xl font-bold text-white mb-3">${data.title}</h3>
-                <p class="text-brand-muted text-sm leading-relaxed mb-6">${data.desc}</p>
-                <div class="pt-4 border-t border-brand-border flex justify-between items-center">
-                    <a href="mailto:muradshaikh528@gmail.com" class="text-xs text-brand-blue font-mono font-bold hover:underline">Discuss Custom Build →</a>
-                    <button onclick="closeModal()" class="px-4 py-2 rounded bg-brand-blue text-white text-xs font-semibold">Close</button>
-                </div>
-            `;
-            document.getElementById('projectModal').classList.remove('hidden');
-        }
+        <div class="process-box">
 
-        function closeModal() {
-            document.getElementById('projectModal').classList.add('hidden');
-        }
+          <div class="process-icon">
+            02
+          </div>
 
-        window.onload = function() {
-            initCanvas();
-            drawCanvas();
-        };
-    </script>
+          <h3 class="text-xl font-bold mt-7">
+            Design
+          </h3>
+
+          <p class="text-zinc-500 mt-3 leading-relaxed">
+            Map triggers, data, AI logic, conditions and integrations.
+          </p>
+
+        </div>
+
+
+        <div class="process-box">
+
+          <div class="process-icon">
+            03
+          </div>
+
+          <h3 class="text-xl font-bold mt-7">
+            Build
+          </h3>
+
+          <p class="text-zinc-500 mt-3 leading-relaxed">
+            Build the workflow in n8n and test it with realistic inputs.
+          </p>
+
+        </div>
+
+
+        <div class="process-box">
+
+          <div class="process-icon">
+            04
+          </div>
+
+          <h3 class="text-xl font-bold mt-7">
+            Deliver
+          </h3>
+
+          <p class="text-zinc-500 mt-3 leading-relaxed">
+            Prepare the automation for the client's environment and handover.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- CONTACT -->
+
+  <section id="contact" class="section">
+
+    <div class="wrap">
+
+      <div class="cta p-8 md:p-20">
+
+        <div class="relative z-10 max-w-5xl">
+
+          <div class="text-sm uppercase tracking-[.2em] text-blue-100 font-bold">
+            Have a process worth automating?
+          </div>
+
+          <h2 class="cta-title mt-7">
+
+            Let's build
+            something useful.
+
+          </h2>
+
+          <p class="text-blue-100 text-lg md:text-xl max-w-2xl mt-8 leading-relaxed">
+
+            Tell me what you're trying to automate,
+            and let's turn the process into a practical AI-powered workflow.
+
+          </p>
+
+
+          <div class="mt-10 flex flex-col sm:flex-row gap-4">
+
+            <a
+              href="mailto:muradshaikh528@gmail.com"
+              class="cta-button px-8 py-4 font-bold text-center"
+            >
+              Email Me
+            </a>
+
+            <a
+              href="https://wa.me/923294282528"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="border border-white/30 text-white rounded-full px-8 py-4 font-bold text-center hover:bg-white hover:text-black transition"
+            >
+              WhatsApp
+            </a>
+
+            <a
+              href="https://www.instagram.com/muradshaikh118/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="border border-white/30 text-white rounded-full px-8 py-4 font-bold text-center hover:bg-white hover:text-black transition"
+            >
+              Instagram
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- FOOTER -->
+
+  <footer class="footer py-10">
+
+    <div class="wrap flex flex-col md:flex-row justify-between gap-5 items-center">
+
+      <div>
+
+        <div class="font-bold">
+          MURAD SHAIKH
+        </div>
+
+        <div class="text-xs text-zinc-500 mt-1">
+          AI AUTOMATION ENGINEER
+        </div>
+
+      </div>
+
+
+      <div class="text-sm text-zinc-500">
+        © 2026 Murad Shaikh
+      </div>
+
+
+      <div class="flex gap-5 text-sm">
+
+        <a
+          href="mailto:muradshaikh528@gmail.com"
+          class="text-zinc-500 hover:text-white transition"
+        >
+          Email
+        </a>
+
+        <a
+          href="https://wa.me/923294282528"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-zinc-500 hover:text-white transition"
+        >
+          WhatsApp
+        </a>
+
+        <a
+          href="https://www.instagram.com/muradshaikh118/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-zinc-500 hover:text-white transition"
+        >
+          Instagram
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- =========================
+       MODALS
+  ========================== -->
+
+
+  <!-- HOSPITAL -->
+
+  <div
+    id="hospital"
+    class="modal"
+    onclick="closeModal(event, 'hospital')"
+  >
+
+    <div
+      class="modal-box"
+      onclick="event.stopPropagation()"
+    >
+
+      <div class="flex justify-between gap-5">
+
+        <div>
+
+          <div class="eyebrow">
+            Project 01 / Healthcare
+          </div>
+
+          <h2 class="display text-4xl font-bold mt-4">
+            AI Hospital Appointment Booking & Management Agent
+          </h2>
+
+        </div>
+
+        <button
+          onclick="closeModal(null, 'hospital')"
+          class="text-3xl text-zinc-400 hover:text-black"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <div class="grid md:grid-cols-2 gap-8 mt-12">
+
+        <div>
+
+          <h3 class="font-bold text-xl">
+            Problem
+          </h3>
+
+          <p class="text-zinc-500 mt-3 leading-relaxed">
+            Patient appointment requests require information collection,
+            doctor availability checking and booking management.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3 class="font-bold text-xl">
+            Solution
+          </h3>
+
+          <p class="text-zinc-500 mt-3 leading-relaxed">
+            An AI agent handles the conversation, checks doctor slots,
+            stores appointments and confirms the booking.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3 class="font-bold text-xl">
+            Workflow
+          </h3>
+
+          <p class="text-zinc-500 mt-3 leading-relaxed">
+            Telegram → AI Agent → Doctor Sheet → Patient Appointment Sheet → Confirmation
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3 class="font-bold text-xl">
+            Tools
+          </h3>
+
+          <div class="flex flex-wrap gap-2 mt-3">
+
+            <span class="modal-tag">n8n</span>
+            <span class="modal-tag">AI Agent</span>
+            <span class="modal-tag">Telegram</span>
+            <span class="modal-tag">Google Sheets</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- LEAD -->
+
+  <div
+    id="lead"
+    class="modal"
+    onclick="closeModal(event, 'lead')"
+  >
+
+    <div
+      class="modal-box"
+      onclick="event.stopPropagation()"
+    >
+
+      <div class="flex justify-between gap-5">
+
+        <div>
+
+          <div class="eyebrow">
+            Project 02 / Sales
+          </div>
+
+          <h2 class="display text-4xl font-bold mt-4">
+            AI Lead Management Automation
+          </h2>
+
+        </div>
+
+        <button
+          onclick="closeModal(null, 'lead')"
+          class="text-3xl text-zinc-400 hover:text-black"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <div class="grid md:grid-cols-2 gap-8 mt-12">
+
+        <div>
+
+          <h3 class="font-bold text-xl">
+            Problem
+          </h3>
+
+          <p class="text-zinc-500 mt-3 leading-relaxed">
+            Leads need to be captured and evaluated consistently.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3 class="font-bold text-xl">
+            Solution
+          </h3>
+
+          <p class="text-zinc-500 mt-3 leading-relaxed">
+            The workflow collects lead details and scores need,
+            budget, timeline and intent.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3 class="font-bold text-xl">
+            Logic
+          </h3>
+
+          <p class="text-zinc-500 mt-3 leading-relaxed">
+            The four criteria produce a score from 0–8,
+            with Hot, Warm and Cold classifications.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3 class="font-bold text-xl">
+            Tools
+          </h3>
+
+          <div class="flex flex-wrap gap-2 mt-3">
+
+            <span class="modal-tag">n8n</span>
+            <span class="modal-tag">AI</span>
+            <span class="modal-tag">Google Sheets</span>
+            <span class="modal-tag">Telegram</span>
+            <span class="modal-tag">Gmail</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- SCHEDULER -->
+
+  <div
+    id="scheduler"
+    class="modal"
+    onclick="closeModal(event, 'scheduler')"
+  >
+
+    <div
+      class="modal-box"
+      onclick="event.stopPropagation()"
+    >
+
+      <div class="flex justify-between gap-5">
+
+        <div>
+
+          <div class="eyebrow">
+            Project 03 / Scheduling
+          </div>
+
+          <h2 class="display text-4xl font-bold mt-4">
+            AI Business Appointment Scheduling
+          </h2>
+
+        </div>
+
+        <button
+          onclick="closeModal(null, 'scheduler')"
+          class="text-3xl text-zinc-400 hover:text-black"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <div class="grid md:grid-cols-2 gap-8 mt-12">
+
+        <div>
+
+          <h3 class="font-bold text-xl">
+            Problem
+          </h3>
+
+          <p class="text-zinc-500 mt-3 leading-relaxed">
+            Appointment requests and reminders can require repetitive
+            manual work.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3 class="font-bold text-xl">
+            Solution
+          </h3>
+
+          <p class="text-zinc-500 mt-3 leading-relaxed">
+            An AI-powered Telegram scheduler handles appointment
+            information and works with available slots.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3 class="font-bold text-xl">
+            Reminders
+          </h3>
+
+          <p class="text-zinc-500 mt-3 leading-relaxed">
+            Scheduled automation checks appointments and performs
+            reminder actions.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3 class="font-bold text-xl">
+            Tools
+          </h3>
+
+          <div class="flex flex-wrap gap-2 mt-3">
+
+            <span class="modal-tag">n8n</span>
+            <span class="modal-tag">AI Agent</span>
+            <span class="modal-tag">Telegram</span>
+            <span class="modal-tag">Google Sheets</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- NEWS -->
+
+  <div
+    id="news"
+    class="modal"
+    onclick="closeModal(event, 'news')"
+  >
+
+    <div
+      class="modal-box"
+      onclick="event.stopPropagation()"
+    >
+
+      <div class="flex justify-between gap-5">
+
+        <div>
+
+          <div class="eyebrow">
+            Project 04 / Information
+          </div>
+
+          <h2 class="display text-4xl font-bold mt-4">
+            AI News Automation
+          </h2>
+
+        </div>
+
+        <button
+          onclick="closeModal(null, 'news')"
+          class="text-3xl text-zinc-400 hover:text-black"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <div class="grid md:grid-cols-2 gap-8 mt-12">
+
+        <div>
+
+          <h3 class="font-bold text-xl">
+            Input
+          </h3>
+
+          <p class="text-zinc-500 mt-3 leading-relaxed">
+            News enters through RSS feeds on a scheduled basis.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3 class="font-bold text-xl">
+            Processing
+          </h3>
+
+          <p class="text-zinc-500 mt-3 leading-relaxed">
+            Filtering and AI processing prepare relevant information.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3 class="font-bold text-xl">
+            Output
+          </h3>
+
+          <p class="text-zinc-500 mt-3 leading-relaxed">
+            Processed information is delivered through Telegram.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3 class="font-bold text-xl">
+            Tools
+          </h3>
+
+          <div class="flex flex-wrap gap-2 mt-3">
+
+            <span class="modal-tag">RSS</span>
+            <span class="modal-tag">n8n</span>
+            <span class="modal-tag">AI Agent</span>
+            <span class="modal-tag">Telegram</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- CONTENT -->
+
+  <div
+    id="content"
+    class="modal"
+    onclick="closeModal(event, 'content')"
+  >
+
+    <div
+      class="modal-box"
+      onclick="event.stopPropagation()"
+    >
+
+      <div class="flex justify-between gap-5">
+
+        <div>
+
+          <div class="eyebrow">
+            Project 05 / Content
+          </div>
+
+          <h2 class="display text-4xl font-bold mt-4">
+            AI Content Creator Automation
+          </h2>
+
+        </div>
+
+        <button
+          onclick="closeModal(null, 'content')"
+          class="text-3xl text-zinc-400 hover:text-black"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <div class="grid md:grid-cols-2 gap-8 mt-12">
+
+        <div>
+
+          <h3 class="font-bold text-xl">
+            Purpose
+          </h3>
+
+          <p class="text-zinc-500 mt-3 leading-relaxed">
+            Create a repeatable content production workflow
+            that reduces manual preparation.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3 class="font-bold text-xl">
+            AI
+          </h3>
+
+          <p class="text-zinc-500 mt-3 leading-relaxed">
+            AI generates the written post content and image
+            while preparing the assets for review.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3 class="font-bold text-xl">
+            Approval
+          </h3>
+
+          <p class="text-zinc-500 mt-3 leading-relaxed">
+            Human approval is required before final publishing actions.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3 class="font-bold text-xl">
+            Tools
+          </h3>
+
+          <div class="flex flex-wrap gap-2 mt-3">
+
+            <span class="modal-tag">n8n</span>
+            <span class="modal-tag">AI</span>
+            <span class="modal-tag">Telegram</span>
+            <span class="modal-tag">Image Generation</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    function openModal(id) {
+
+      const modal = document.getElementById(id);
+
+      if (!modal) return;
+
+      modal.classList.add("active");
+
+      document.body.style.overflow = "hidden";
+
+    }
+
+
+    function closeModal(event, id) {
+
+      if (
+        event &&
+        event.target !== event.currentTarget
+      ) {
+        return;
+      }
+
+      const modal = document.getElementById(id);
+
+      if (!modal) return;
+
+      modal.classList.remove("active");
+
+      document.body.style.overflow = "";
+
+    }
+
+
+    document.addEventListener("keydown", function(event) {
+
+      if (event.key === "Escape") {
+
+        document
+          .querySelectorAll(".modal.active")
+          .forEach(function(modal) {
+
+            modal.classList.remove("active");
+
+          });
+
+        document.body.style.overflow = "";
+
+      }
+
+    });
+
+  </script>
+
 </body>
 </html>
