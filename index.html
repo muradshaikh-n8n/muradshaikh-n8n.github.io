@@ -660,8 +660,42 @@
         min-height: 260px;
       }
 
+      /* MOBILE WORKFLOW: stack nodes vertically so every label fits */
       .workflow {
-        transform: scale(.85);
+        position: relative;
+        inset: auto;
+        width: 100%;
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        gap: 8px;
+        padding: 22px 18px;
+        transform: none;
+      }
+
+      .workflow .node {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        height: auto;
+        min-height: 54px;
+        padding: 10px 8px;
+        font-size: 11px;
+        line-height: 1.25;
+        flex-shrink: 0;
+      }
+
+      .workflow .arrow {
+        width: 100%;
+        height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        line-height: 1;
+        transform: rotate(90deg);
       }
 
       .section {
@@ -1772,7 +1806,7 @@
             </a>
 
             <a
-              href="https://www.instagram.com/muradshaikh118/"
+              href="https://www.instagram.com/murad.shaikh.n8n.engineer/"
               target="_blank"
               rel="noopener noreferrer"
               class="border border-white/30 text-white rounded-full px-8 py-4 font-bold text-center hover:bg-white hover:text-black transition"
@@ -1840,7 +1874,7 @@
         </a>
 
         <a
-          href="https://www.instagram.com/muradshaikh118/"
+          href="https://www.instagram.com/murad.shaikh.n8n.engineer/"
           target="_blank"
           rel="noopener noreferrer"
           class="text-zinc-500 hover:text-white transition"
