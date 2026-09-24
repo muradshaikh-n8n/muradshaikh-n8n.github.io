@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -401,6 +400,13 @@
         #151619;
     }
 
+    .visual-gold {
+      background:
+        radial-gradient(circle at 25% 25%, rgba(245,158,11,.28), transparent 32%),
+        radial-gradient(circle at 80% 80%, rgba(21,94,239,.22), transparent 35%),
+        #151619;
+    }
+
     .workflow {
       position: absolute;
       inset: 0;
@@ -435,6 +441,10 @@
 
     .node-green {
       border-color: rgba(25,169,116,.55);
+    }
+
+    .node-gold {
+      border-color: rgba(245,158,11,.55);
     }
 
     .arrow {
@@ -1038,7 +1048,7 @@
 
           <p class="project-intro text-lg leading-relaxed mt-7 max-w-2xl">
 
-            Five completed automation systems demonstrating how
+            Six completed automation systems demonstrating how
             AI and workflow automation can solve different
             business problems.
 
@@ -1479,6 +1489,97 @@
               </div>
 
             </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+      <!-- PROJECT 06 — RESTAURANT -->
+
+      <article class="project">
+
+        <div class="grid lg:grid-cols-[1.2fr_.8fr] gap-14 items-center">
+
+          <div class="project-image visual-gold order-2 lg:order-1">
+
+            <div class="workflow">
+
+              <div class="node node-gold">
+                CUSTOMER
+                <br>
+                ORDER
+              </div>
+
+              <div class="arrow">
+                →
+              </div>
+
+              <div class="node node-blue">
+                AI
+                <br>
+                AGENT
+              </div>
+
+              <div class="arrow">
+                →
+              </div>
+
+              <div class="node">
+                MENU
+                <br>
+                & ORDER
+              </div>
+
+              <div class="arrow">
+                →
+              </div>
+
+              <div class="node node-green">
+                CONFIRMED
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="order-1 lg:order-2">
+
+            <div class="project-index mb-6">
+              06 / RESTAURANT AUTOMATION
+            </div>
+
+            <h3 class="project-title">
+              AI Restaurant
+              Order Management
+              Agent
+            </h3>
+
+            <p class="project-description mt-7 text-lg">
+
+              An AI-powered restaurant ordering agent that handles
+              customer orders, retrieves menu information, confirms
+              orders, stores them in Google Sheets and sends
+              real-time notifications to the restaurant owner.
+
+            </p>
+
+            <div class="flex flex-wrap gap-2 mt-7">
+
+              <span class="project-tag">n8n</span>
+              <span class="project-tag">AI Agent</span>
+              <span class="project-tag">Google Sheets</span>
+              <span class="project-tag">Telegram</span>
+
+            </div>
+
+            <button
+              onclick="openModal('restaurant')"
+              class="case-link mt-8"
+            >
+              View case study →
+            </button>
 
           </div>
 
@@ -2428,6 +2529,139 @@
 
   </div>
 
+  <!-- RESTAURANT MODAL -->
+
+  <div
+    id="restaurant"
+    class="modal"
+    onclick="closeModal(event, 'restaurant')"
+  >
+
+    <div
+      class="modal-box"
+      onclick="event.stopPropagation()"
+    >
+
+      <div class="flex justify-between gap-5">
+
+        <div>
+
+          <div class="eyebrow">
+            Project 06 / Restaurant Automation
+          </div>
+
+          <h2 class="display text-4xl font-bold mt-4">
+            AI Restaurant Order Management Agent
+          </h2>
+
+        </div>
+
+        <button
+          onclick="closeModal(null, 'restaurant')"
+          class="text-3xl text-zinc-400 hover:text-black"
+        >
+          ×
+        </button>
+
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 mt-12">
+
+        <div>
+
+          <h3 class="font-bold text-xl">
+            Problem
+          </h3>
+
+          <p class="text-zinc-500 mt-3 leading-relaxed">
+            Restaurant orders can require staff to manually handle
+            customer requests, check menu information, record orders
+            and notify the restaurant owner.
+          </p>
+
+        </div>
+
+        <div>
+
+          <h3 class="font-bold text-xl">
+            Solution
+          </h3>
+
+          <p class="text-zinc-500 mt-3 leading-relaxed">
+            An AI-powered ordering agent handles the conversation,
+            retrieves menu information, collects order details,
+            confirms the order and triggers the required actions.
+          </p>
+
+        </div>
+
+        <div>
+
+          <h3 class="font-bold text-xl">
+            Menu & Orders
+          </h3>
+
+          <p class="text-zinc-500 mt-3 leading-relaxed">
+            Google Sheets stores the restaurant menu and confirmed
+            customer orders, allowing the workflow to retrieve menu
+            information and save completed transactions.
+          </p>
+
+        </div>
+
+        <div>
+
+          <h3 class="font-bold text-xl">
+            Owner Notification
+          </h3>
+
+          <p class="text-zinc-500 mt-3 leading-relaxed">
+            After an order is confirmed, the workflow sends the
+            restaurant owner a Telegram notification containing
+            customer details, order ID, items, total, order type
+            and special requests.
+          </p>
+
+        </div>
+
+        <div>
+
+          <h3 class="font-bold text-xl">
+            Workflow
+          </h3>
+
+          <p class="text-zinc-500 mt-3 leading-relaxed">
+            Customer → AI Agent → Menu → Order Summary →
+            Confirmation → Google Sheets → Telegram Notification
+          </p>
+
+        </div>
+
+        <div>
+
+          <h3 class="font-bold text-xl">
+            Tools
+          </h3>
+
+          <div class="flex flex-wrap gap-2 mt-3">
+
+            <span class="modal-tag">n8n</span>
+            <span class="modal-tag">AI Agent</span>
+            <span class="modal-tag">Groq</span>
+            <span class="modal-tag">Google Sheets</span>
+            <span class="modal-tag">Telegram</span>
+            <span class="modal-tag">Google Drive</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
   <!-- JAVASCRIPT -->
 
   <script>
@@ -2485,4 +2719,3 @@
 
 </body>
 </html>
-```
